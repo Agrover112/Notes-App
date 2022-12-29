@@ -2,8 +2,8 @@
     require_once('includes/db.php');
     require_once('includes/functions.php');
 
-    if($_SERVER['REQUEST_METHOD'] =="POST")
-    {
+    if($_SERVER['REQUEST_METHOD'] =="POST") 
+    {                                       // This updates the data sent via POST method
         $title=prep_data($_POST['title']);
         $content=prep_data($_POST['content']);
         $important=prep_data($_POST['important']);
@@ -28,7 +28,7 @@
         header("Location: index.php");
     }
 
-    $id= $_GET['id'];
+    $id= $_GET['id'];   // Get this from index.php before the form is submitted
     $sql= "SELECT * FROM notes WHERE id = '" . $id . "' LIMIT 1";
     $result = mysqli_query($conn,$sql);
     $note = mysqli_fetch_assoc($result);
