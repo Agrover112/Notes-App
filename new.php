@@ -14,11 +14,11 @@
         $sql= "INSERT INTO notes (title,content,important) VALUES('";
         $sql .= $title . "','" . $content . "','" . $important . "')";
     
-        echo $sql; 
+        //echo $sql; 
 
         if(mysqli_query($conn,$sql))
         {
-            echo "Insertion successful";
+            //echo "Insertion successful";
         }
     }
 
