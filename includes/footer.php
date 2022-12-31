@@ -4,4 +4,3 @@
     {
         mysqli_close($conn);
     }
-?>

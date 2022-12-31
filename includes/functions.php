@@ -8,5 +8,3 @@ function prep_data($data)
 
     return $data;
 }
-
-?>
