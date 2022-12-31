@@ -1,35 +1,44 @@
 <?php
 require_once('includes/db.php');
 require_once('includes/functions.php');
+try {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {                                       // This updates the data sent via POST method
+        $title = prep_data($_POST['title']);
+        $content = prep_data($_POST['content']);
+        $important = prep_data($_POST['important']);
+        $id = prep_data($_POST['id']);
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {                                       // This updates the data sent via POST method
-    $title = prep_data($_POST['title']);
-    $content = prep_data($_POST['content']);
-    $important = prep_data($_POST['important']);
-    $id = prep_data($_POST['id']);
-
-    $sql = "UPDATE notes SET ";
-    $sql .= "title ='" . $title . "', ";
-    $sql .= "content ='" . $content . "', ";
-    $sql .= "important ='" . $important . "' ";
-    $sql .= "WHERE id ='" . $id . "'";
-    $sql .= "LIMIT 1";
+        $sql = "UPDATE notes SET ";
+        $sql .= "title ='" . $title . "', ";
+        $sql .= "content ='" . $content . "', ";
+        $sql .= "important ='" . $important . "' ";
+        $sql .= "WHERE id ='" . $id . "'";
+        $sql .= "LIMIT 1";
 
 
-    if (mysqli_query($conn, $sql)) {
+        if (mysqli_query($conn, $sql)) {
+            header("Location: index.php");
+        }
+    }
+} catch (Exception $e) {
+    echo "Update failed " . $e->getMessage();
+}
+try {
+    if (!isset($_GET['id'])) {
         header("Location: index.php");
     }
+} catch (Exception $e) {
+    echo "Redirect failed " . $e->getMessage();
 }
-
-if (!isset($_GET['id'])) {
-    header("Location: index.php");
+try {
+    $id = $_GET['id'];   // Get this from index.php before the form is submitted
+    $sql = "SELECT * FROM notes WHERE id = '" . $id . "' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $note = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+} catch (Exception $e) {
+    echo "Query execution failed " . $e->getMessage();
 }
-
-$id = $_GET['id'];   // Get this from index.php before the form is submitted
-$sql = "SELECT * FROM notes WHERE id = '" . $id . "' LIMIT 1";
-$result = mysqli_query($conn, $sql);
-$note = mysqli_fetch_assoc($result);
-mysqli_free_result($result);
 ?>
 <!DOCTYPE html>
 <html>

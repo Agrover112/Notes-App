@@ -1,12 +1,21 @@
 <?php
-    $servername = "localhost";
-    $username = "sqluser";
-    $password = "sqlpass";
-    $dbname = "notes";
+//$servername = "localhost";
+//$username = "sqluser";      
+//$password = "sqlpass"; 
+//$dbname = "NOTES";       
 
-    $conn = mysqli_connect($servername,$username,$password,$dbname);
+require_once('config/setenv.php');
+require_once('config/config.php');
+
+
+try {
+
+
+    $conn = mysqli_connect(servername, username, password, dbname);
     if (!$conn) {
         die("Connection failed " . mysqli_connect_error());
     }
-    echo "Connection successful" . "\n";
-?>
+} catch (Exception $e) {
+    echo "Connection failed " . $e->getMessage();
+}
+    //echo "Connection successful" . "\n";

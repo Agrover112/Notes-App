@@ -3,23 +3,25 @@
 require_once('includes/db.php');
 require_once('includes/functions.php');
 
+try {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $title = prep_data($_POST['title']);
+        $content = prep_data($_POST['content']);
+        $important = prep_data($_POST['important']);
 
-    $title = prep_data($_POST['title']);
-    $content = prep_data($_POST['content']);
-    $important = prep_data($_POST['important']);
+        $sql = "INSERT INTO notes (title,content,important) VALUES('";
+        $sql .= $title . "','" . $content . "','" . $important . "')";
 
-    $sql = "INSERT INTO notes (title,content,important) VALUES('";
-    $sql .= $title . "','" . $content . "','" . $important . "')";
+        //echo $sql; 
 
-    //echo $sql; 
-
-    if (mysqli_query($conn, $sql)) {
-        //echo "Insertion successful";
+        if (mysqli_query($conn, $sql)) {
+            //echo "Insertion successful";
+        }
     }
+} catch (Exception $e) {
+    echo "Insertion failed " . $e->getMessage();
 }
-
 
 ?>
 
