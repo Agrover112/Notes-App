@@ -1,0 +1,13 @@
+CREATE DATABASE NOTES;
+
+USE DB NOTES;
+
+CREATE TABLE
+    NOTES(
+        ID INT NOT NULL AUTO_INCREMENT,
+        Title VARCHAR(100) NOT NULL,
+        Content VARCHAR(1000) NOT NULL,
+        Important BOOLEAN NOT NULL,
+        PRIMARY KEY('ID'),
+        ENGINE = 'InnoDb'
+    );
