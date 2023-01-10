@@ -16,8 +16,9 @@ A simple basic notes app built using PHP and MySQL
 Start the MySQL server
 ```bash
   sudo service mysql start
-  sudo mysql -u root -p password
+  sudo mysql -u root -p password <create_db.sql
 ```
+Execute the 
 Run a php server
 ```bash
   php -S localhost:8000
