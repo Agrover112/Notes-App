@@ -1,10 +1,14 @@
 # Notes-App
 A simple basic notes app built using PHP and MySQL.
 
+![image](https://user-images.githubusercontent.com/42321810/211871600-e32db5a5-1756-4118-9cd8-4e87b56f8611.png)
+
+
 ## Features
-- Add a note
-- Delete a note
-- Edit a note
+- Add a new note.
+- Delete existing notes.
+- Edit existing note.
+- No non-duplicate notes.
 
 
 ## Installation
