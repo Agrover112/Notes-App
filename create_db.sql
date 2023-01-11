@@ -11,3 +11,5 @@ CREATE TABLE
         PRIMARY KEY('ID'),
         ENGINE = 'InnoDb'
     );
+
+ALTER TABLE notes ADD UNIQUE Title;
