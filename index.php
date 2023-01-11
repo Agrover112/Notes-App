@@ -35,15 +35,21 @@ $notes = mysqli_query($conn, $sql);
                 <div class="titleContainer">
                     <span class="nt-title"><?php echo $note['title']; ?></span>
                     <div class="nt-links">
-                        <a class="nt-link" href=<?php echo 'edit.php?id=' . $note['id'];  ?>>edit note</a>
-                        <a class="nt-link" href=<?php echo 'delete.php?id=' . $note['id'];  ?>>[X] delete note</a>
+                        <a class="nt-link" href=<?php echo 'edit.php?id=' . $note['id'];  ?>><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="nt-link" href=<?php echo 'delete.php?id=' . $note['id'];  ?>><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
                 <div class="nt-content">
-                    <?php if ($note['important']) {
-                        echo "<span class='fa fa-star'></span> <br>";
-                    } ?>
+                    <?php 
+                    if ($note['important']) 
+                    {
+                        echo "<span class='fa fa-star' aria-hidden='true'></span> <br>";
+                    }
+                    else { 
+                        echo "<i class='fa fa-star-o' aria-hidden='true'></i><br>";
+                    }
+                     ?>
                     <?php
                     echo $note['content'];
                     ?>

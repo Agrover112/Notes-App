@@ -44,24 +44,24 @@ try {
 <html>
 
 <head>
-    <title>Notes App</title>
+    <title>Notes</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <header>
-    Notes App
+    Notes
 </header>
 
 <div class="titleDiv">
-    <div class="backLink"><a class="nav-link" href="index.php"> Home</a></div>
-    <div class="head">New Note</div>
+    <div class="backLink"><a class="nav-link" href="index.php"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 </div>
 <form action="edit.php" method="post">
     <input type="hidden" name="id" value=<?php echo $note['id']; ?>>
-    <span class="label">Title</span>
+    <span class="label"></span>
     <input type="text" name="title" value=<?php echo $note['title'];
                                             ?> />
 
-    <span class="label">Content</span>
+    <span class="label"></span>
     <textarea name="content"><?php echo $note['content'];
                                 ?>
             </textarea>
