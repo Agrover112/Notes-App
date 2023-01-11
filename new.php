@@ -10,7 +10,7 @@ try {
         $content = prep_data($_POST['content']);
         $important = prep_data($_POST['important']);
 
-        $sql = "INSERT INTO notes (title,content,important) VALUES('";
+        $sql = "INSERT IGNORE INTO notes (title,content,important) VALUES('";
         $sql .= $title . "','" . $content . "','" . $important . "')";
 
         //echo $sql; 
