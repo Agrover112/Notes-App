@@ -11,6 +11,11 @@ A simple basic notes app built using PHP and MySQL.
 - No non-duplicate notes.
 
 
+## Prerequisites
+- Python3.9.5 : mysql-connector,unittest,requests
+- MySQL Database
+- PHP
+
 ## Installation
   
 ```bash
@@ -23,6 +28,7 @@ Start the MySQL server:
   sudo mysql -u root -p password <create_db.sql
 ```
 Add your own MySql database credentials in `config/setenv.php`
+
 Run a php server
 ```bash
   php -S localhost:8000
