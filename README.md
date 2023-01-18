@@ -9,6 +9,7 @@ A simple basic notes app built using PHP and MySQL.
 - Delete existing notes.
 - Edit existing note.
 - No non-duplicate notes.
+- Basic login/registration (simple )
 
 
 ## Prerequisites
